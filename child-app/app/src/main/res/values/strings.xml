@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Системный сервис</string>
+    <string name="accessibility_description">Мониторинг экрана для защиты ребёнка</string>
+</resources>
