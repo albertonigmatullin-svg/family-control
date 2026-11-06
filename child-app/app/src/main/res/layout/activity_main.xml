@@ -14,4 +14,25 @@
         android:textSize="18sp"
         android:gravity="center" />
 
+    <TextView
+        android:id="@+id/deviceIdLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="ID устройства:"
+        android:textSize="13sp"
+        android:textColor="#888888"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/deviceIdText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="загрузка..."
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textIsSelectable="true" />
+
 </LinearLayout>

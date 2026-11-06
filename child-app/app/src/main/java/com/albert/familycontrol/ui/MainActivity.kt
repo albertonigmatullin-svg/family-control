@@ -28,15 +28,20 @@ class MainActivity : AppCompatActivity() {
     private val REQUEST_PERMISSIONS = 102
 
     private lateinit var statusText: TextView
+    private lateinit var deviceIdText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         statusText = findViewById(R.id.statusText)
+        deviceIdText = findViewById(R.id.deviceIdText)
 
         CoroutineScope(Dispatchers.IO).launch {
             FirebaseManager.init()
+            runOnUiThread {
+                deviceIdText.text = FirebaseManager.deviceId
+            }
         }
 
         setupAll()
