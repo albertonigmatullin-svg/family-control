@@ -24,7 +24,13 @@ object ParentFirebaseManager {
             auth.signInWithEmailAndPassword(email, password).await()
             Result.success(Unit)
         } catch (e: Exception) {
-            Result.failure(e)
+            // User doesn't exist yet — create account on first launch
+            try {
+                auth.createUserWithEmailAndPassword(email, password).await()
+                Result.success(Unit)
+            } catch (e2: Exception) {
+                Result.failure(e2)
+            }
         }
     }
 
