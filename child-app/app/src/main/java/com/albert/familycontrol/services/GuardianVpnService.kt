@@ -8,6 +8,7 @@ import android.net.VpnService
 import android.os.ParcelFileDescriptor
 import com.albert.familycontrol.firebase.FirebaseManager
 import kotlinx.coroutines.*
+import kotlinx.coroutines.currentCoroutineContext
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.nio.ByteBuffer
@@ -73,7 +74,7 @@ class GuardianVpnService : VpnService() {
         val outputStream = FileOutputStream(fd)
         val buffer = ByteBuffer.allocate(32767)
 
-        while (running && isActive) {
+        while (running && currentCoroutineContext().isActive) {
             try {
                 buffer.clear()
                 val length = inputStream.read(buffer.array())

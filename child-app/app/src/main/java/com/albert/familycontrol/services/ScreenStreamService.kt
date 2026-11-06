@@ -18,6 +18,7 @@ import android.util.DisplayMetrics
 import android.view.WindowManager
 import com.albert.familycontrol.firebase.FirebaseManager
 import kotlinx.coroutines.*
+import kotlinx.coroutines.currentCoroutineContext
 import org.java_websocket.server.WebSocketServer
 import org.java_websocket.WebSocket
 import org.java_websocket.handshake.ClientHandshake
@@ -84,7 +85,7 @@ class ScreenStreamService : Service() {
     }
 
     private suspend fun streamFrames(ws: WebSocket, width: Int, height: Int) {
-        while (streaming && isActive && ws.isOpen) {
+        while (streaming && currentCoroutineContext().isActive && ws.isOpen) {
             try {
                 val image = imageReader?.acquireLatestImage()
                 if (image != null) {
