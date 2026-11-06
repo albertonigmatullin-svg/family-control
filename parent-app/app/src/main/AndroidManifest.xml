@@ -42,5 +42,13 @@
             android:name=".HistoryActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".PresetsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RequestsActivity"
+            android:exported="false" />
+
     </application>
 </manifest>

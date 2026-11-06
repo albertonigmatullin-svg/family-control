@@ -61,4 +61,13 @@
     <string name="no_history">No history yet</string>
 
     <string name="disconnect">Disconnect &amp; Sign Out</string>
+
+    <!-- Русские строки -->
+    <string name="btn_lock_screen_ru">🔒 Заблокировать</string>
+    <string name="btn_screenshot_ru">📸 Скриншот</string>
+    <string name="requests_title">Запросы от Льва</string>
+    <string name="presets_title">Режим дня</string>
+    <string name="section_control_ru">УПРАВЛЕНИЕ</string>
+    <string name="online_ru">🟢 Онлайн</string>
+    <string name="offline_ru">⚫ Офлайн</string>
 </resources>
