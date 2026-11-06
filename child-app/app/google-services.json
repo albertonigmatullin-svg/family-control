@@ -2,7 +2,8 @@
   "project_info": {
     "project_number": "984027759720",
     "project_id": "familycontrol-dd3f1",
-    "storage_bucket": "familycontrol-dd3f1.firebasestorage.app"
+    "storage_bucket": "familycontrol-dd3f1.firebasestorage.app",
+    "firebase_url": "https://familycontrol-dd3f1-default-rtdb.firebaseio.com"
   },
   "client": [
     {
