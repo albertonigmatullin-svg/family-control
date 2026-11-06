@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Family Control Parent</string>
+    <string name="login_subtitle">Parent Control Panel</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Sign In</string>
+    <string name="fill_all_fields">Please fill all fields</string>
+    <string name="login_error">Login failed: %1$s</string>
+
+    <string name="connect_child_title">Connect Child Device</string>
+    <string name="connect_child_hint_text">Enter the Device ID shown in the child app (Settings screen). This is the Firebase anonymous UID.</string>
+    <string name="hint_device_id">Device ID (Firebase UID)</string>
+    <string name="enter_device_id">Please enter the Device ID</string>
+    <string name="btn_connect">Connect</string>
+
+    <string name="dashboard_title">Dashboard</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="battery_format">🔋 %1$d%%</string>
+    <string name="current_app_format">App: %1$s</string>
+    <string name="screen_format">Screen: %1$s</string>
+    <string name="last_seen_format">Last seen: %1$s</string>
+    <string name="location_format">📍 %1$s, %2$s (±%3$dm)</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="unknown">unknown</string>
+    <string name="never">never</string>
+
+    <string name="btn_lock_screen">🔒 LOCK SCREEN</string>
+    <string name="btn_screenshot">📷 SCREENSHOT</string>
+    <string name="command_sent_lock">Lock command sent</string>
+    <string name="command_sent_screenshot">Screenshot command sent, waiting…</string>
+    <string name="screenshot_title">Screenshot</string>
+    <string name="screenshot_error">Failed to decode screenshot</string>
+
+    <string name="section_control">Controls</string>
+    <string name="btn_apps">📱 Blocked Apps</string>
+    <string name="btn_internet">🌐 Internet Control</string>
+    <string name="btn_alerts">🔔 Alerts</string>
+    <string name="btn_history">📋 Browser History</string>
+
+    <string name="apps_title">Blocked Apps</string>
+    <string name="apps_description">Toggle to block/unblock apps on the child device. Changes apply immediately.</string>
+    <string name="app_blocked">Blocked: %1$s</string>
+    <string name="app_unblocked">Unblocked: %1$s</string>
+
+    <string name="internet_title">Internet Control</string>
+    <string name="block_all_internet">Block All Internet</string>
+    <string name="blocked_domains">Blocked Domains</string>
+    <string name="btn_add">+ Add</string>
+    <string name="add_domain_title">Add Blocked Domain</string>
+    <string name="domain_hint">example.com</string>
+    <string name="internet_blocked">Internet blocked</string>
+    <string name="internet_unblocked">Internet unblocked</string>
+
+    <string name="alerts_title">Alerts</string>
+    <string name="no_alerts">No alerts yet</string>
+
+    <string name="history_title">Browser History</string>
+    <string name="no_history">No history yet</string>
+
+    <string name="disconnect">Disconnect &amp; Sign Out</string>
+</resources>
