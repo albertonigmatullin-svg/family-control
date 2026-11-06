@@ -1,56 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="32dp">
+    android:padding="32dp"
+    android:background="@color/colorBg">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="28sp"
+        android:text="🛡️"
+        android:textSize="64sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardian"
+        android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginBottom="8dp" />
+        android:textColor="@color/textPrimary"
+        android:layout_marginBottom="6dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_subtitle"
         android:textSize="14sp"
-        android:textColor="#666666"
+        android:textColor="@color/textSecondary"
         android:layout_marginBottom="40dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_email"
-        android:layout_marginBottom="16dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        android:layout_marginBottom="14dp"
+        style="@style/DarkTextInput"
+        app:boxStrokeColor="@color/colorBorder"
+        app:hintTextColor="@color/textSecondary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textColor="@color/textPrimary" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_password"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="28dp"
+        style="@style/DarkTextInput"
         app:passwordToggleEnabled="true"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        app:boxStrokeColor="@color/colorBorder"
+        app:hintTextColor="@color/textSecondary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@color/textPrimary" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -59,7 +73,8 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_login"
         android:textSize="16sp"
-        android:padding="14dp" />
+        android:padding="14dp"
+        app:backgroundTint="@color/colorPrimary" />
 
     <ProgressBar
         android:id="@+id/progressBar"

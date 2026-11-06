@@ -1,165 +1,352 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:background="@color/colorBg">
 
-    <LinearLayout
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorSurface"
+        android:elevation="0dp"
+        app:titleTextColor="@color/textPrimary"
+        app:title="🛡️  Guardian" />
 
-        <!-- Status Card -->
-        <androidx.cardview.widget.CardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+    <!-- Border under toolbar -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorBorder" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <LinearLayout
+            <!-- Status card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="@color/colorSurface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="12dp">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <View
-                        android:id="@+id/viewOnlineDot"
-                        android:layout_width="12dp"
-                        android:layout_height="12dp"
-                        android:background="@drawable/dot_gray"
-                        android:layout_marginEnd="8dp" />
+                    <!-- Online row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <View
+                            android:id="@+id/viewOnlineDot"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@drawable/dot_gray"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:id="@+id/tvOnlineStatus"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/offline"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/textPrimary" />
+
+                        <TextView
+                            android:id="@+id/tvBattery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔋 --"
+                            android:textSize="14sp"
+                            android:textColor="@color/colorGreen" />
+                    </LinearLayout>
+
+                    <!-- Current app + screen -->
+                    <TextView
+                        android:id="@+id/tvCurrentApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/current_app_format"
+                        android:textSize="13sp"
+                        android:textColor="@color/textSecondary"
+                        android:layout_marginBottom="2dp" />
 
                     <TextView
-                        android:id="@+id/tvOnlineStatus"
-                        android:layout_width="0dp"
+                        android:id="@+id/tvScreenOn"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/offline"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:text="@string/screen_format"
+                        android:textSize="13sp"
+                        android:textColor="@color/textSecondary"
+                        android:layout_marginBottom="2dp" />
 
                     <TextView
-                        android:id="@+id/tvBattery"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvLastSeen"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🔋 --"
-                        android:textSize="14sp" />
+                        android:text="@string/last_seen_format"
+                        android:textSize="12sp"
+                        android:textColor="#555577"
+                        android:layout_marginBottom="2dp" />
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="11sp"
+                        android:textColor="#555577"
+                        android:fontFamily="monospace"
+                        android:visibility="gone" />
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/tvCurrentApp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/current_app_format"
-                    android:textSize="13sp"
-                    android:layout_marginBottom="4dp" />
+            <!-- Quick actions -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
 
-                <TextView
-                    android:id="@+id/tvScreenOn"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/btnLockScreen"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/screen_format"
-                    android:textSize="13sp"
-                    android:layout_marginBottom="4dp" />
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:text="@string/btn_lock_screen"
+                    android:textColor="@color/white"
+                    android:padding="14dp"
+                    app:backgroundTint="@color/colorRed" />
 
-                <TextView
-                    android:id="@+id/tvLastSeen"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/btnScreenshot"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/last_seen_format"
-                    android:textSize="13sp"
-                    android:textColor="#888888"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
-                    android:id="@+id/tvLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="#555555"
-                    android:fontFamily="monospace"
-                    android:visibility="gone" />
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/btn_screenshot"
+                    android:textColor="@color/white"
+                    android:padding="14dp"
+                    app:backgroundTint="@color/colorPrimary" />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <!-- Commands -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
-
-            <Button
-                android:id="@+id/btnLockScreen"
-                android:layout_width="0dp"
+            <!-- Section label -->
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:text="@string/btn_lock_screen"
-                android:backgroundTint="@color/colorDanger"
-                android:textColor="@android:color/white"
-                android:padding="16dp" />
+                android:text="@string/section_control"
+                android:textSize="11sp"
+                android:textAllCaps="true"
+                android:textColor="@color/textSecondary"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="10dp" />
 
-            <Button
-                android:id="@+id/btnScreenshot"
-                android:layout_width="0dp"
+            <!-- Nav cards row 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:text="@string/btn_screenshot"
-                android:padding="16dp" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnApps"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/colorSurface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📱"
+                            android:textSize="28sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_apps"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/textPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Блокировка"
+                            android:textSize="12sp"
+                            android:textColor="@color/textSecondary" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnInternet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/colorSurface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🌐"
+                            android:textSize="28sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_internet"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/textPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Фильтр сайтов"
+                            android:textSize="12sp"
+                            android:textColor="@color/textSecondary" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Nav cards row 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnAlerts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/colorSurface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚠️"
+                            android:textSize="28sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_alerts"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/textPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Уведомления"
+                            android:textSize="12sp"
+                            android:textColor="@color/textSecondary" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnHistory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/colorSurface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📋"
+                            android:textSize="28sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_history"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/textPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Браузер и SMS"
+                            android:textSize="12sp"
+                            android:textColor="@color/textSecondary" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
         </LinearLayout>
+    </ScrollView>
 
-        <!-- Navigation -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/section_control"
-            android:textSize="12sp"
-            android:textAllCaps="true"
-            android:textColor="#888888"
-            android:layout_marginBottom="8dp" />
-
-        <Button
-            android:id="@+id/btnApps"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_apps"
-            android:layout_marginBottom="8dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
-
-        <Button
-            android:id="@+id/btnInternet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_internet"
-            android:layout_marginBottom="8dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
-
-        <Button
-            android:id="@+id/btnAlerts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_alerts"
-            android:layout_marginBottom="8dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
-
-        <Button
-            android:id="@+id/btnHistory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_history"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

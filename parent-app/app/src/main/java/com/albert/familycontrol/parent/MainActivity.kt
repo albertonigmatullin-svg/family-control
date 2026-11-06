@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.dashboard_title)
 
         binding.btnLockScreen.setOnClickListener {

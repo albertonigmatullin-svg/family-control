@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupAll() {
         requestPermissions()
-        requestVpn()
         requestDeviceAdmin()
         checkAccessibility()
         startLocationService()

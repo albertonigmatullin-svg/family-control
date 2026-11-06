@@ -39,7 +39,7 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="Системный сервис"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:theme="@style/Theme.FamilyControl"
         android:usesCleartextTraffic="true">
 
         <activity

@@ -4,35 +4,66 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp">
+    android:padding="40dp"
+    android:background="#0F0F1A">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🛡️"
+        android:textSize="72sp"
+        android:layout_marginBottom="16dp" />
 
     <TextView
         android:id="@+id/statusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Инициализация..."
-        android:textSize="18sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#22C55E"
         android:gravity="center" />
+
+    <View
+        android:layout_width="80dp"
+        android:layout_height="1dp"
+        android:background="#2A2A45"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp" />
 
     <TextView
         android:id="@+id/deviceIdLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="ID устройства:"
-        android:textSize="13sp"
-        android:textColor="#888888"
-        android:gravity="center" />
+        android:text="ID устройства"
+        android:textSize="12sp"
+        android:textColor="#555577"
+        android:textAllCaps="true"
+        android:letterSpacing="0.1"
+        android:gravity="center"
+        android:layout_marginBottom="10dp" />
 
     <TextView
         android:id="@+id/deviceIdText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="загрузка..."
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold"
+        android:textColor="#CCCCFF"
+        android:fontFamily="monospace"
         android:gravity="center"
-        android:textIsSelectable="true" />
+        android:textIsSelectable="true"
+        android:background="#16162A"
+        android:padding="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Введите этот ID в Parent App"
+        android:textSize="12sp"
+        android:textColor="#444466"
+        android:gravity="center"
+        android:layout_marginTop="10dp" />
 
 </LinearLayout>
