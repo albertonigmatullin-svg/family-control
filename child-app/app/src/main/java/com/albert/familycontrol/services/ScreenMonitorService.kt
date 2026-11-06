@@ -110,7 +110,7 @@ class ScreenMonitorService : AccessibilityService() {
     }
 
     fun takeScreenshot() {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
             takeScreenshot(
                 android.view.Display.DEFAULT_DISPLAY,
                 mainExecutor,

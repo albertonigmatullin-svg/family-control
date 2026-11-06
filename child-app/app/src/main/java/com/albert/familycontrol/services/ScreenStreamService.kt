@@ -48,7 +48,12 @@ class ScreenStreamService : Service() {
         startForeground(NOTIF_ID, buildNotification())
 
         val resultCode = intent?.getIntExtra(EXTRA_RESULT_CODE, -1) ?: -1
-        val data = intent?.getParcelableExtra<Intent>(EXTRA_DATA)
+        val data = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            intent?.getParcelableExtra(EXTRA_DATA, Intent::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent?.getParcelableExtra<Intent>(EXTRA_DATA)
+        }
 
         if (resultCode != -1 && data != null) {
             val projectionManager = getSystemService(MEDIA_PROJECTION_SERVICE) as MediaProjectionManager

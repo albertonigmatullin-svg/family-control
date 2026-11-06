@@ -9,7 +9,7 @@ import com.albert.familycontrol.services.LocationService
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == Intent.ACTION_BOOT_COMPLETED) {
-            context.startService(
+            context.startForegroundService(
                 Intent(context, GuardianVpnService::class.java).apply {
                     action = GuardianVpnService.ACTION_START
                 }

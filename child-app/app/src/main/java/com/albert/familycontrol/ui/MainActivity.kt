@@ -52,13 +52,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun requestPermissions() {
         val needed = mutableListOf<String>()
-        val perms = arrayOf(
+        val perms = mutableListOf(
             android.Manifest.permission.ACCESS_FINE_LOCATION,
             android.Manifest.permission.ACCESS_BACKGROUND_LOCATION,
-            android.Manifest.permission.READ_MEDIA_IMAGES,
-            android.Manifest.permission.READ_MEDIA_VIDEO,
             android.Manifest.permission.READ_SMS
         )
+        // READ_MEDIA_* were added in API 33; use READ_EXTERNAL_STORAGE on older devices
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            perms += android.Manifest.permission.READ_MEDIA_IMAGES
+            perms += android.Manifest.permission.READ_MEDIA_VIDEO
+        } else {
+            @Suppress("DEPRECATION")
+            perms += android.Manifest.permission.READ_EXTERNAL_STORAGE
+        }
         for (p in perms) {
             if (ContextCompat.checkSelfPermission(this, p) != PackageManager.PERMISSION_GRANTED) {
                 needed.add(p)
