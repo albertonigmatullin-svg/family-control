@@ -10,7 +10,7 @@
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:textColorPrimary">@color/textPrimary</item>
         <item name="android:textColorSecondary">@color/textSecondary</item>
-        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog.Dark</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
     </style>
 
     <style name="DarkTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
