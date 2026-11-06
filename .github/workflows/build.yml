@@ -24,7 +24,14 @@ jobs:
           gradle-version: '8.4'
 
       - name: Write google-services.json
-        run: echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > child-app/app/google-services.json
+        run: |
+          SECRET='${{ secrets.GOOGLE_SERVICES_JSON }}'
+          if [ -n "$SECRET" ] && [ ${#SECRET} -gt 10 ]; then
+            echo "$SECRET" > child-app/app/google-services.json
+            echo "google-services.json written from secret"
+          else
+            echo "Warning: GOOGLE_SERVICES_JSON secret not set or empty, using placeholder from repo"
+          fi
 
       - name: Setup Gradle wrapper
         working-directory: child-app

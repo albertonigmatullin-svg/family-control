@@ -1,0 +1,16 @@
+# Build outputs
+build/
+.gradle/
+
+# Local Android files
+local.properties
+*.jks
+*.keystore
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# Note: google-services.json placeholder IS committed intentionally
+# Real credentials are injected via GitHub Actions secret GOOGLE_SERVICES_JSON
